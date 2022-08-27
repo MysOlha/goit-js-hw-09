@@ -28,18 +28,19 @@ const options = {
     btnStart.removeAttribute('disabled') 
 
     btnStart.addEventListener('click', () => {
-        timerId = setInterval(() => {
+        let timerId = setInterval(() => {
 
             btnStart.setAttribute('disabled', true) 
-            
-            now = new Date().getTime()
+
+            let now = new Date().getTime()
             let ms = (selectedDates[0]) - now
                         
             const { days, hours, minutes, seconds } = convertMs(ms)
             console.log(`${days}:${hours}:${minutes}:${seconds}`)
-            if(ms < 1000){
-            clearInterval(timerId) 
-            }     
+            
+        if(ms < 1000){
+        clearInterval(timerId) 
+        }     
             
         daysWindow.textContent = `${days}`;
         hoursWindow.textContent = `${hours}`;
